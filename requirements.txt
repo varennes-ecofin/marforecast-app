@@ -2,3 +2,4 @@ streamlit
 scipy
 scipy
 sympy
+openpyxl
