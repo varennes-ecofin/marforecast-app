@@ -17,7 +17,8 @@ st.subheader('with semi-norm representation of stable MAR')
 
 replication = '''**Replication :**
     To replicate the results presented in the paper "Forecasting extreme trajectories
-    using seminorm representations", select "Climate Data" and the "SOI" series.
+    using seminorm representations" (de Truchis, Fries and Thomas 2025) 
+    select "Climate Data" and the "SOI" series.
     For example, set the in-sample date to December 1, 1991, and the number of 
     forward lags to 2. Then, click "Estimate." Note that the estimation process may 
     converge to a local optimum with ill-located roots. If this occurs, repeat the
