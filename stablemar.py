@@ -654,8 +654,6 @@ def madelta(cvec, ncvec, k):
             else: # Multiply by 1 if s is odd
                 delta += numerator / (denominator1 * denominator2)
                 
-        if r == 0:
-            delta = - delta
     else:
         for j in range(r):
             numerator = lam[j] ** ((r - 1) - k)
@@ -667,11 +665,10 @@ def madelta(cvec, ncvec, k):
             else:
                 delta += numerator / (denominator1 * denominator2) 
                 
-        if s == 0:
-            delta = - delta
-                
-    if r % 2 != 0 and s % 2 != 0:           
-        delta = - delta
+    if (r % 2 != 0) and (s % 2 != 0):
+        delta = -delta
+    elif (r % 2 == 0) and (s % 2 == 0):
+        delta = -delta
         
     return delta
 
