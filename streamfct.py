@@ -33,11 +33,15 @@ def dataselection(option):
         data = pd.read_excel('AssetsMAREstim.xlsx', sheet_name='Artificial')
         dates = pd.to_datetime(data['Dates'] + '-2', format='%Y-%W-%w')
         data['Dates'] = dates
-    elif option == 'Macro data':
-        data = pd.read_excel('AssetsMAREstim.xlsx', sheet_name='Macro')
+    elif option == 'FRED Macro data':
+        data = pd.read_excel('AssetsMAREstim.xlsx', sheet_name='FREDMacro')
+        dates = pd.to_datetime(data['Dates'], format='%Y-%m-%d')
+        data['Dates'] = dates
+    elif option == 'Ocean data':
+        data = pd.read_excel('AssetsMAREstim.xlsx', sheet_name='Ocean')
         dates = pd.to_datetime(data['Dates'], format='%Y:%m:%d')
         data['Dates'] = dates
-    elif option == 'Crypto':
+    elif option == 'Crypto data':
         data = pd.read_excel('AssetsMAREstim.xlsx', sheet_name='Crypto')
         dates = pd.to_datetime(data['Dates'] + '-2', format='%Y-%W-%w')
         data['Dates'] = dates
@@ -54,7 +58,7 @@ def sampleselection(oos, df, dates):
     if closest_date == pd.to_datetime(oos):
         st.write('You selected:', oos)
     else:
-        st.write('You selected', oos,' but that date has been replaced by the closest one available:',closest_date.date())
+        st.write('You selected', oos,' but that date has been replaced by the closest one available:', closest_date.date())
         oos = closest_date.date()
 
     oosdate = pd.to_datetime(oos)

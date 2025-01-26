@@ -17,8 +17,7 @@ st.subheader('with semi-norm representation of stable MAR')
 
 replication = '''**Replication :**
     To replicate the results presented in the paper "Forecasting extreme trajectories
-    using seminorm representations" (de Truchis, Fries and Thomas 2025) 
-    select "Climate Data" and the "SOI" series.
+    using seminorm representations", select "Climate Data" and the "SOI" series.
     For example, set the in-sample date to December 1, 1991, and the number of 
     forward lags to 2. Then, click "Estimate." Note that the estimation process may 
     converge to a local optimum with ill-located roots. If this occurs, repeat the
@@ -34,7 +33,7 @@ st.subheader('Data selection', divider='red')
 # Data selection
 option = st.selectbox(
     'Select the database you want to explore',
-    ('Climate data', 'Financial data', 'Artificial data', 'Crypto'))
+    ('Climate data', 'FRED Macro data', 'Financial data', 'Artificial data', 'Crypto data'))
 
 data, dates = stf.dataselection(option)
     
@@ -61,7 +60,10 @@ st.subheader('Estimation', divider='orange')
 
 # Define In-Sample vs Out-of-Sample
 oos = st.date_input("Define when the Out-of-Sample starts. The estimation will be performed in sample.",
-                    dates.iloc[-1],min_value=dates[104],max_value=dates.iloc[-1])
+                    dates.iloc[-1].date(),min_value=dates[104].date(),max_value=dates.iloc[-1].date())
+
+if option == 'Ocean data':
+    oos = pd.to_datetime(f"{oos} 00:10:00")
     
 dfInS, dfInSidx, isback = stf.sampleselection(oos, df, dates)
 
