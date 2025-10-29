@@ -9,9 +9,6 @@
 
 This application implements the methodology described in the paper *"Forecasting extreme trajectories using seminorm representations"* and provides an intuitive interface for analyzing time series with heavy-tailed distributions and extreme events.
 
-<div align="center">
-  <img src="docs/images/app_screenshot.png" alt="MAR Forecasting App Interface" width="800"/>
-</div>
 
 ## 🌟 Features
 
