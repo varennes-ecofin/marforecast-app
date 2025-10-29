@@ -1,7 +1,7 @@
 import time
 import pandas as pd
 import numpy as np
-from stablemar import StableMAR, madelta, root_check
+from stablemar import madelta, root_check
 import streamlit as st
 
 
@@ -286,3 +286,4 @@ def estimate_stable_params(model, df):
     stable_params = model.fit_stable_noise(residuals)
     
     return stable_params
+
