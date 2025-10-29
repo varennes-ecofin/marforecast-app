@@ -262,9 +262,7 @@ marforecast-app/
 ├── requirements.txt        # Python dependencies
 ├── README.md              # This file
 │
-├── docs/                  # Documentation
-    ├── QUICKSTART.md
-    └── deTruchis_Fries_Thomas_WP_2025.pdf
+└── deTruchis_Fries_Thomas_WP_2025.pdf
 ```
 
 ## 🔬 Technical Details
